@@ -1,6 +1,6 @@
 {
   "name": "mading-digital",
-  "version": "2.0.0.0",
+  "version": "2.0.1.0",
   "description": "Ini adalah sebuah inovasi teknologi yang dirancang untuk memodernisasi konsep tradisional dari mading sekolah.",
   "main": "app/app.js",
   "type": "commonjs",
