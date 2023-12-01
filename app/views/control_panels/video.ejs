@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mading Digital Control Panel - Video</title>
+    <link rel="stylesheet" href="css/video.css">
+</head>
+<body>
+    <%- include("../../templates/control_panels/sidebar.ejs") %>
+
+    <div class="container">
+        <h1>VIDEO</h1>
+        <div>
+
+            <% if(video_list && video_list.length > 0) { %>
+                <% video_list.forEach((item) => { %>
+                    <div class="video-container">
+                        <video src="<%= `${process.env.BASE_URL}:${process.env.PORT}/upload/videos/${item.video}` %>" width="100%" height="100%" controls></video>
+                        <p><%= item.title %></p>
+                        <a class="delete-button" href="?delete=<%= item.id %>">Hapus</a>
+                    </div>
+                <% }); %>
+            <% } %>
+
+            <a href="?add_popup=true" class="add-video-container">
+                <img src="icon/add.png" alt="add image">
+            </a>
+
+        </div>
+    </div>
+
+    <% if(add_popup) { %>
+        <div class="add-popup-background">
+            <form class="add-popup-container" action="" method="POST" enctype="multipart/form-data">
+                <h1>Tambah Video</h1>
+                <br>
+                <label for="video">Video</label>
+                <input type="file" name="video" id="video" accept="video/mp4" required>
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title" placeholder="Masukkan title video" required>
+                <br>
+                <div>
+                    <button class="add-button" type="submit">Tambah</button>
+                    <a href="?add_popup=false" class="cancel-button">Batal</a>
+                </div>
+            </form>
+        </div>
+    <% } %>
+
+    <script src="javascripts/video.js"></script>
+</body>
+</html>

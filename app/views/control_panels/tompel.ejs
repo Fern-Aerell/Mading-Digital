@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mading Digital Control Panel - Tompel</title>
+    <link rel="stylesheet" href="css/tompel.css">
+</head>
+<body>
+    <%- include("../../templates/control_panels/sidebar.ejs") %>
+
+    <div class="container">
+        <h1>WATERMARK</h1>
+        <div>
+            <% if(tompel_data) { %>
+                <form action="" method="post">
+                    <input type="text" name="id" id="id" value="<%= tompel_data.id %>" hidden>
+                    <input type="text" name="text" id="text" value="<%= tompel_data.text %>">
+                    <div>
+                        <button class="edit-button" type="submit">Edit</button>
+                        <a class="reset-button" href="?reset=<%= tompel_data.id %>">Reset</a>
+                    </div>
+                </form>
+            <% } %>
+        </div>
+    </div>
+
+    <script src="javascripts/tompel.js"></script>
+</body>
+</html>
