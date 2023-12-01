@@ -2,6 +2,14 @@
 
 Ini adalah sebuah inovasi teknologi yang dirancang untuk memodernisasi konsep tradisional dari mading sekolah.
 
+| Konten |
+| ------ |
+| [Teknologi yang Digunakan](#teknologi-yang-digunakan) |
+| [Fitur Utama](#fitur-utama) |
+| [Persyaratan Yang Dibutuhkan](#persyaratan-yang-dibutuhkan) |
+| [Pembuat beserta perannya](#pembuat-beserta-perannya) |
+| [CHANGELOG](CHANGELOG.md) |
+
 ## Teknologi yang Digunakan
 1. **NodeJs:** 
    - Digunakan sebagai platform runtime untuk menjalankan aplikasi.
