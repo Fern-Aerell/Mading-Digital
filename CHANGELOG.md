@@ -1,4 +1,4 @@
-# 2.0.0.0
+# 2.0.1.0
 
 ### Fitur Lama
 1. Client menampilkan jam, hari, tanggal
@@ -13,3 +13,6 @@
 10. Sistem login control panel sudah menggunakan session.
 11. Control panel dapat mengatur jadwal, video, qrcode, marquee text dan text di bawah tablet.
 12. Tombol logout di control panel.
+
+### Perubahan
+1. Merubah, merombak ulang code fitur lama menjadi kode javascript dan nodejs.
