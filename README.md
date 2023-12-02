@@ -29,6 +29,7 @@ Ini adalah sebuah inovasi teknologi yang dirancang untuk memodernisasi konsep tr
         - moment
         - mysql2
         - qrcode
+        - socket.io
 
 3. **MySQL:** 
    - Sistem manajemen basis data yang digunakan untuk:
