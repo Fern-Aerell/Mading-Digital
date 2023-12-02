@@ -1,29 +1,20 @@
-require("dotenv").config();
+const { socketNameSpace, httpServer, baseUrl, port, client_connection} = require("./core/server.js");
+const { init, update } = require("./core/client.js");
 
-const express = require("express");
-const session = require("express-session");
-const fileUpload = require('express-fileupload');
-const routes = require("./config/routes.js");
+setInterval(() => update(socketNameSpace), 5000);
 
-const app = express();
-app.set("view engine", "ejs");
-app.set("views", __dirname + "/views");
-app.use(express.static("public"));
-app.use(
-  session({
-    secret: "mading_digital_dds_project_secret_key",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
-app.use(fileUpload());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use("/", routes);
+socketNameSpace.on("connection", (socket) => {
+  const socket_id = socket.id;
+  console.log(`Client dengan socket.id ${socket_id} terhubung...`);
+  client_connection.push(socket_id);
+  init(socket);
 
-const baseUrl = process.env.BASE_URL;
-const port = process.env.PORT;
+  socket.on("disconnect", (reason) => {
+    console.log(`Client dengan socket.id ${socket_id} disconnect karena ${reason}`);
+    client_connection.splice(client_connection.findIndex((id) => id == socket_id), 1);
+  });
+});
 
-app.listen(port, () => {
+httpServer.listen(port, () => {
   console.log(`Mading Digital berjalan pada ${baseUrl}:${port}`);
 });

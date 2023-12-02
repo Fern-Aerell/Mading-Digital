@@ -27,7 +27,6 @@
                                 var englishDayIndex = dateTime.getDay();
                                 var indonesianDay = indonesianDays[englishDayIndex];
                                 var formattedDateTime = indonesianDay + ', ' + dateTime.toLocaleTimeString('id-ID', {hour: '2-digit', minute:'2-digit'});
-                                console.log(formattedDateTime);
                                 %><%= formattedDateTime %></span>
                         </div>
                         <div class="jadwal-body">

@@ -1,3 +1,8 @@
+# 2.0.2.0
+
+### Perubahan
+1. Sistem sinkronisasi basis data yang sebelumnya melakukan permintaan API secara terus-menerus setiap 5 detik telah diperbarui. Kini, sistem menggunakan WebSocket/Socket.IO, di mana server dan klien menjalankan proses sinkronisasi basis data dengan interval 5 detik.
+
 # 2.0.1.0
 
 ### Fitur Lama

@@ -1,16 +1,11 @@
-const {Sequelize, DataTypes, json} = require("sequelize");
-const databaseConfig = require("../config/database.js")[process.env.NODE_ENV];
-const sequelize = new Sequelize(databaseConfig);
-const AkunModel = require("../models/AkunModel.js")(sequelize, DataTypes);
-const JadwalModel = require("../models/JadwalModel.js")(sequelize, DataTypes);
-const MarqueeTextModel = require("../models/MarqueeTextModel.js")(sequelize, DataTypes);
-const QrCodeModel = require("../models/QrCodeModel.js")(sequelize, DataTypes);
-const TompelModel = require("../models/TompelModel.js")(sequelize, DataTypes);
-const VideoModel = require("../models/VideoModel.js")(sequelize, DataTypes);
+const { AkunModel, JadwalModel, MarqueeTextModel, QrCodeModel, TompelModel, VideoModel } = require("../core/database.js");
 const password_utils = require("../utils/password.js");
 const qrcode_utils = require("../utils/qrcode.js");
 const fs = require('fs/promises');
 const moment = require('moment');
+const { updateMarqueeText, updateUseQrCode, updateVideo, updateJadwal, updateTompel } = require("../core/client.js");
+
+let socketNameSpace;
 
 async function isLogin(req) {
     const data = {
@@ -52,6 +47,10 @@ async function isLogin(req) {
 
 class ControlPanelController {
 
+    static initializeWebSocket(ioNamespace) {
+        socketNameSpace = ioNamespace;
+    }
+
     static login(req, res) {
         res.redirect('/control_panels/qrcode');
     }
@@ -91,6 +90,7 @@ class ControlPanelController {
                     if(error) console.error("Gagal mengupload file:", error);
                 });
                 await JadwalModel.create({image: image, title: title, text: text, text_its_time: text_its_time, date: date});
+                updateJadwal(socketNameSpace);
             }
 
             // Show & Hide Edit Popup
@@ -129,6 +129,7 @@ class ControlPanelController {
                     }else{
                         await JadwalModel.update({title: title, text: text, text_its_time: text_its_time, date: date}, {where: {id: jadwal_id}});
                     }
+                    updateJadwal(socketNameSpace);
                 }
             }
 
@@ -141,6 +142,7 @@ class ControlPanelController {
                     await fs.access(jadwal_image_path);
                     await fs.unlink(jadwal_image_path);
                     await JadwalModel.destroy({where: {id: jadwal_id}});
+                    updateJadwal(socketNameSpace);
                 }
             }
 
@@ -161,6 +163,7 @@ class ControlPanelController {
             if(req.body.text && req.body.text.length > 0) {
                 const text = req.body.text;
                 await MarqueeTextModel.create({text: text});
+                updateMarqueeText(socketNameSpace);
             }
 
             // Delete Marquee Text
@@ -169,6 +172,7 @@ class ControlPanelController {
                 const result = await MarqueeTextModel.findByPk(marquee_text_no);
                 if(result) {
                     await MarqueeTextModel.destroy({where: {no: marquee_text_no}});
+                    updateMarqueeText(socketNameSpace);
                 }
             }
 
@@ -204,6 +208,7 @@ class ControlPanelController {
                 if(result) {
                     await QrCodeModel.update({use: 0}, {where: {use:1}});
                     await QrCodeModel.update({use: 1}, {where: {id: qrcode_id}});
+                    updateUseQrCode(socketNameSpace);
                 }
             }
 
@@ -216,6 +221,7 @@ class ControlPanelController {
                     await fs.access(qrcode_image_path);
                     await fs.unlink(qrcode_image_path);
                     await QrCodeModel.destroy({where: {id: qrcode_id}});
+                    updateUseQrCode(socketNameSpace);
                 }
             }
 
@@ -246,6 +252,7 @@ class ControlPanelController {
                 const result = await TompelModel.findByPk(tompel_id);
                 if(result) {
                     await TompelModel.update({text: "DDS"}, {where: {id: tompel_id}});
+                    updateTompel(socketNameSpace);
                 }
             }
 
@@ -256,6 +263,7 @@ class ControlPanelController {
                 const result = await TompelModel.findByPk(tompel_id);
                 if(result) {
                     await TompelModel.update({text: text}, {where: {id: tompel_id}});
+                    updateTompel(socketNameSpace);
                 }
             }
 
@@ -289,6 +297,7 @@ class ControlPanelController {
                     if(error) console.error("Gagal mengupload file:", error);
                 });
                 await VideoModel.create({video: video, title: title});
+                updateVideo(socketNameSpace);
             }
 
             // Delete Video
@@ -300,6 +309,7 @@ class ControlPanelController {
                     await fs.access(file_video_path);
                     await fs.unlink(file_video_path);
                     await VideoModel.destroy({where: {id: video_id}});
+                    updateVideo(socketNameSpace);
                 }
             }
 

@@ -1,5 +1,9 @@
-.vscode
-!.vscode/extensions.json
 node_modules
 dist
 package-lock.json
+commit_msg.txt
+public/upload/images/*
+public/upload/qrcodes/*
+public/upload/videos/*
+.vscode
+!.vscode/extensions.json
