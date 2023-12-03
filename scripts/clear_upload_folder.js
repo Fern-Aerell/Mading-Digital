@@ -8,9 +8,11 @@ async function deleteFolderContents(folderPath) {
 
     // Menghapus setiap file
     const deletePromises = files.map(async (file) => {
-      const filePath = path.join(folderPath, file);
-      await fs.unlink(filePath);
-      console.log(`File ${filePath} dihapus.`);
+      if(file != ".gitkeep") {
+        const filePath = path.join(folderPath, file);
+        await fs.unlink(filePath);
+        console.log(`File ${filePath} dihapus.`);
+      }
     });
 
     // Menunggu semua file dihapus
