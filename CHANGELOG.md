@@ -1,7 +1,12 @@
+# 2.6.2.1
+
+### Fitur Baru
+1. File html, css dan js yang di terima client sekarang adalah versi yang sudah di minify.
+
 # 2.5.2.1
 
 ### Fitur Baru
-1. Menambahkan fitur auto update (git pull) saat pertama kali mading digital di jalankan.
+1. Menambahkan fitur auto update (git pull) saat mading digital di jalankan.
 
 # 2.0.2.0
 

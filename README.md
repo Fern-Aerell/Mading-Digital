@@ -64,6 +64,96 @@ Proyek "Mading Digital" tidak hanya memberikan sentuhan modern pada tradisi madi
 - NodeJs 20.9.0+
 - NPM 10.2.4+
 
+## Cara Setup Di Raspberry Pi (Dalam Pengerjaan)
+
+1. **Update Linux**
+```sh
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt-get update -y 
+sudo apt-get upgrade -y
+```
+
+2. **Install Git**
+```sh
+sudo apt install git -y
+```
+
+3. **Install Mysql Dan Ganti Password User Root Mysql**
+```sh
+# Install mysql
+sudo apt install mariadb-server -y
+
+# For view mysql status
+sudo service mysql status
+
+# Start mysql
+sudo service mysql start
+
+# Stop mysql
+sudo service mysql stop
+
+# Change mysql root user password
+sudo mysql -u root -p
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword';
+exit;
+```
+
+4. **Install NodeJs 20.9.0+ Dan NPM 10.2.4+**
+
+Sedang dalam riset.
+
+5. **Clone & Setup project**
+
+Clone repository github
+```sh
+git clone https://github.com/Fern-Aerell/Mading-Digital.git mading_digital
+```
+
+Masuk ke folder ```mading_digital```
+```sh
+cd mading_digital
+```
+
+Copy file ```env``` dan rename menjadi ```.env```
+```sh
+cp env .env
+```
+
+Edit file ```.env``` dengan nano
+```sh
+nano .env
+```
+
+Ubah dan uncomment beberapa hal yang ada di .env
+```
+# NODE_ENV=development
+menjadi
+NODE_ENV=production // development, production
+```
+```
+// Uncomment database config sesuaikan dengan NODE_ENV
+
+# PRO_DB_USER=root
+# PRO_DB_PASS=
+# PRO_DB_NAME=mading_digital_production
+# PRO_DB_HOST=localhost
+# PRO_DB_PORT=3306
+# PRO_DB_DIALECT=mysql
+menjadi
+PRO_DB_USER=root
+PRO_DB_PASS=newpassword
+PRO_DB_NAME=mading_digital_production
+PRO_DB_HOST=localhost
+PRO_DB_PORT=3306
+PRO_DB_DIALECT=mysql
+```
+
+Install semua package yang diperlukan
+```sh
+npm install
+```
+
 ## Pembuat beserta perannya
 - Aerell (Desain, Frontend, Backend)
 - Reza (Desain, Frontend)

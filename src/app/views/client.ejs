@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mading Digital Client</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="clients/css/client.css">
+</head>
+<body>
+    <div class="hp-container">
+        <div class="hp-volume-button-container">
+            <div class="hp-volume-button"></div>
+            <div class="hp-volume-button"></div>
+        </div>
+        <div class="hp">
+            <div class="hp-content">
+                <div id="hp_dynamic_island_container" class="hp-dynamic-island">
+                    <img id="hp_dynamic_island_icon" src="" alt="Dynamic Island Icon">
+                    <span id="hp_dynamic_island_text">Sudah Waktunya Sholat Duha</span>
+                </div>
+                <h1 id="jam_hp" class="hp-jam">06:00</h1>
+                <p id="hp_hari_dan_tanggal" class="hp-hari-dan-tanggal">Senin, 20 Nov</p>
+
+                <div id="hp_notification"></div>
+
+            </div>
+            <img class="hp-screen" src="assets/wallpapers/default.png">
+        </div>
+    </div>
+
+    <div class="tablet-container">
+        <div class="tablet">
+            <div class="tablet-screen-container">
+                <div class="tablet-screen">
+                    <div class="tablet-screen-2">
+                        <marquee id="marquee_text"></marquee>
+                        <div class="tablet-qrcode-container">
+                            <img id="tablet_qrcode" alt="qrcode">
+                            <h1 id="tablet_qrcode_title">SMK PGRI PEKANBARU</h1>
+                        </div>
+                    </div>
+                    <video id="tablet_videos" width="100%" height="100%" autoplay>
+                        <source id="tablet_video" src="assets/videos/intro.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <div class="tablet-tompel-container">
+                <div class="tablet-tompel">
+                    <h1 class="tablet-tompel-text">DDS</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
+    <script src="clients/javascripts/socket.io.min.js"></script>
+    <script src="clients/javascripts/client.js"></script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 {
   "name": "mading-digital",
-  "version": "2.5.2.1",
+  "version": "2.6.2.1",
   "description": "Ini adalah sebuah inovasi teknologi yang dirancang untuk memodernisasi konsep tradisional dari mading sekolah.",
   "main": "app/app.js",
   "type": "commonjs",
@@ -8,12 +8,16 @@
     "app": "npm run update && npm install && node app/app.js",
     "reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate:undo:all && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all && node scripts/clear_upload_folder.js",
     "update": "node scripts/update.js",
+    "build": "npm run minify",
+    "minify": "node scripts/minify.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "AerellDev, DDS",
   "license": "ISC",
   "devDependencies": {
     "axios": "^1.6.2",
+    "javascript-obfuscator": "^4.1.0",
+    "minify": "^10.5.2",
     "sequelize": "^6.35.1"
   },
   "dependencies": {
