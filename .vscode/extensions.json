@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "aaron-bond.better-comments",
+        "christian-kohler.path-intellisense",
+        "kisstkondoros.vscode-gutter-preview",
+        "usernamehw.errorlens",
+        "dotenv.dotenv-vscode",
+        "dineug.vuerd-vscode",
+        "esbenp.prettier-vscode"
+    ]
+}

@@ -5,5 +5,4 @@ commit_msg.txt
 public/upload/images/*
 public/upload/qrcodes/*
 public/upload/videos/*
-.vscode
-!.vscode/extensions.json
+.env

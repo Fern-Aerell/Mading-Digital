@@ -1,0 +1,28 @@
+# OTHER (Harus Di Isi)
+# NODE_ENV=development
+# BASE_URL=http://localhost
+# PORT=3000
+
+# DATABASE DEVELOPMENT (Harus Di Isi Jika Digunakan)
+# DEV_DB_USER=root
+# DEV_DB_PASS=
+# DEV_DB_NAME=mading_digital_development
+# DEV_DB_HOST=localhost
+# DEV_DB_PORT=3306
+# DEV_DB_DIALECT=mysql
+
+# DATABASE TEST (Harus Di Isi Jika Digunakan)
+# TEST_DB_USER=root
+# TEST_DB_PASS=
+# TEST_DB_NAME=mading_digital_test
+# TEST_DB_HOST=localhost
+# TEST_DB_PORT=3306
+# TEST_DB_DIALECT=mysql
+
+# DATABASE PRODUCTION (Harus Di Isi Jika Digunakan)
+# PRO_DB_USER=root
+# PRO_DB_PASS=
+# PRO_DB_NAME=mading_digital_production
+# PRO_DB_HOST=localhost
+# PRO_DB_PORT=3306
+# PRO_DB_DIALECT=mysql
