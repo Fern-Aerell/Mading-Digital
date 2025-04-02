@@ -1,24 +1,24 @@
-# Mading Digital
+# Digital Bulletin Board
 
-Ini adalah sebuah inovasi teknologi yang dirancang untuk memodernisasi konsep tradisional dari mading sekolah.
+This is a technological innovation designed to modernize the traditional concept of a school bulletin board.
 
-| Konten |
-| ------ |
-| [Teknologi yang Digunakan](#teknologi-yang-digunakan) |
-| [Fitur Utama](#fitur-utama) |
-| [Persyaratan Yang Dibutuhkan](#persyaratan-yang-dibutuhkan) |
-| [Pembuat beserta perannya](#pembuat-beserta-perannya) |
+| Content |
+| ------- |
+| [Technologies Used](#technologies-used) |
+| [Main Features](#main-features) |
+| [Required Prerequisites](#required-prerequisites) |
+| [Creators and Their Roles](#creators-and-their-roles) |
 | [CHANGELOG](CHANGELOG.md) |
 
-## Teknologi yang Digunakan
+## Technologies Used
 1. **NodeJs:** 
-   - Digunakan sebagai platform runtime untuk menjalankan aplikasi.
-   - Memungkinkan pengembang untuk mengeksekusi JavaScript di sisi server.
+   - Used as the runtime platform for running the application.
+   - Allows developers to execute JavaScript on the server-side.
 
 2. **NPM (Node Package Manager):** 
-   - Mengelola dependensi JavaScript untuk proyek ini.
-   - Mempermudah instalasi, pembaruan, dan penghapusan pustaka pihak ketiga.
-   - Package yang digunakan :
+   - Manages JavaScript dependencies for this project.
+   - Simplifies installation, updates, and removal of third-party libraries.
+   - Packages used:
         - sequelize
         - bcrypt
         - dotenv
@@ -32,39 +32,39 @@ Ini adalah sebuah inovasi teknologi yang dirancang untuk memodernisasi konsep tr
         - socket.io
 
 3. **MySQL:** 
-   - Sistem manajemen basis data yang digunakan untuk:
-     - Menyimpan dan mengelola data terkait video.
-     - Menyimpan dan mengelola data terkait QR code.
-     - Menyimpan dan mengelola teks marquee berita.
-     - Menyimpan dan mengelola jadwal kegiatan sekolah.
+   - A database management system used to:
+     - Store and manage data related to videos.
+     - Store and manage data related to QR codes.
+     - Store and manage news ticker text.
+     - Store and manage school activity schedules.
 
-4. **HTML, CSS, dan JavaScript:** 
-   - HTML: Membangun struktur halaman web.
-   - CSS: Mengatur tata letak dan gaya halaman web untuk tampilan yang menarik.
-   - JavaScript: Menambahkan interaktivitas dan memastikan antarmuka pengguna responsif.
-   - Bersama-sama, teknologi ini mendukung pembuatan antarmuka pengguna yang menarik dan optimal bagi pengguna.
+4. **HTML, CSS, and JavaScript:** 
+   - HTML: Builds the structure of web pages.
+   - CSS: Manages layout and style to create an appealing web design.
+   - JavaScript: Adds interactivity and ensures the user interface is responsive.
+   - Together, these technologies support creating an attractive and optimal user interface.
 
-## Fitur Utama
-1. **Tampilan Video:** Mading Digital ini memungkinkan untuk menampilkan video secara langsung, memberikan dimensi multimedia pada informasi yang disampaikan.
+## Main Features
+1. **Video Display:** The Digital Bulletin Board allows videos to be displayed directly, adding a multimedia dimension to the information shared.
 
-2. **QR Code:** Memberikan kemudahan akses dengan menyematkan QR code, memungkinkan pengguna untuk mengakses informasi lebih lanjut dengan mudah.
+2. **QR Code:** Provides easy access by embedding QR codes, enabling users to easily access more information.
 
-3. **Marquee Text Berita:** Menghadirkan teks berita yang bergerak, memastikan bahwa informasi terkini dan penting mendapatkan perhatian maksimal.
+3. **News Marquee Text:** Displays scrolling news text, ensuring that the latest and most important information gets maximum attention.
 
-4. **Jadwal Kegiatan Sekolah:** Secara otomatis menampilkan jadwal kegiatan sekolah sesuai dengan hari yang berlaku, memberikan panduan waktu yang mudah diakses.
+4. **School Activity Schedule:** Automatically displays the school's activity schedule based on the current day, providing an easy-to-access time guide.
 
-5. **Control Panel:** Sebuah antarmuka pengguna yang dapat diakses dengan mudah untuk mengelola konten. Control panel ini memungkinkan pengguna untuk memperbarui data dalam database, mengganti tampilan, dan membuat perubahan lainnya.
+5. **Control Panel:** A user interface that can be easily accessed to manage content. This control panel allows users to update data in the database, change displays, and make other adjustments.
 
-6. **Otomatisasi Perubahan:** Setiap perubahan yang dilakukan melalui control panel akan langsung tercermin pada tampilan Mading Digital. Proses otomatisasi ini memastikan keakuratan dan konsistensi informasi.
+6. **Automatic Updates:** Any changes made through the control panel will immediately reflect on the Digital Bulletin Board. This automation process ensures accuracy and consistency of information.
 
-Proyek "Mading Digital" tidak hanya memberikan sentuhan modern pada tradisi mading sekolah, tetapi juga meningkatkan efisiensi dalam menyampaikan informasi. Dengan kombinasi teknologi terkini dan manajemen yang efektif melalui control panel, proyek ini membawa pendekatan yang inovatif dan responsif dalam mengelola informasi sekolah.
+The "Digital Bulletin Board" project not only gives a modern touch to the traditional school bulletin board but also enhances efficiency in delivering information. With a combination of modern technologies and effective management through the control panel, this project brings an innovative and responsive approach to managing school information.
 
-## Persyaratan Yang Dibutuhkan
-- Mysql 5.1+
+## Required Prerequisites
+- MySQL 5.1+
 - NodeJs 20.9.0+
 - NPM 10.2.4+
 
-## Cara Setup Di Raspberry Pi (Dalam Pengerjaan)
+## Setting Up on Raspberry Pi (In Progress)
 
 1. **Update Linux**
 ```sh
@@ -79,60 +79,60 @@ sudo apt-get upgrade -y
 sudo apt install git -y
 ```
 
-3. **Install Mysql Dan Ganti Password User Root Mysql**
+3. **Install MySQL and Change Root Password**
 ```sh
-# Install mysql
+# Install MySQL
 sudo apt install mariadb-server -y
 
-# For view mysql status
+# To view MySQL status
 sudo service mysql status
 
-# Start mysql
+# Start MySQL
 sudo service mysql start
 
-# Stop mysql
+# Stop MySQL
 sudo service mysql stop
 
-# Change mysql root user password
+# Change MySQL root user password
 sudo mysql -u root -p
 ALTER USER 'root'@'localhost' IDENTIFIED BY 'newpassword';
 exit;
 ```
 
-4. **Install NodeJs 20.9.0+ Dan NPM 10.2.4+**
+4. **Install NodeJs 20.9.0+ and NPM 10.2.4+**
 
-Sedang dalam riset.
+Currently under research.
 
-5. **Clone & Setup project**
+5. **Clone & Setup Project**
 
-Clone repository github
+Clone the GitHub repository
 ```sh
 git clone https://github.com/Fern-Aerell/Mading-Digital.git mading_digital
 ```
 
-Masuk ke folder ```mading_digital```
+Go into the `mading_digital` folder
 ```sh
 cd mading_digital
 ```
 
-Copy file ```env``` dan rename menjadi ```.env```
+Copy the `env` file and rename it to `.env`
 ```sh
 cp env .env
 ```
 
-Edit file ```.env``` dengan nano
+Edit the `.env` file with nano
 ```sh
 nano .env
 ```
 
-Ubah dan uncomment beberapa hal yang ada di .env
+Change and uncomment certain things in the `.env` file
 ```
 # NODE_ENV=development
-menjadi
+to
 NODE_ENV=production // development, production
 ```
 ```
-// Uncomment database config sesuaikan dengan NODE_ENV
+// Uncomment database config according to NODE_ENV
 
 # PRO_DB_USER=root
 # PRO_DB_PASS=
@@ -140,7 +140,7 @@ NODE_ENV=production // development, production
 # PRO_DB_HOST=localhost
 # PRO_DB_PORT=3306
 # PRO_DB_DIALECT=mysql
-menjadi
+to
 PRO_DB_USER=root
 PRO_DB_PASS=newpassword
 PRO_DB_NAME=mading_digital_production
@@ -149,13 +149,13 @@ PRO_DB_PORT=3306
 PRO_DB_DIALECT=mysql
 ```
 
-Install semua package yang diperlukan
+Install all required packages
 ```sh
 npm install
 ```
 
-## Pembuat beserta perannya
-- Aerell (Desain, Frontend, Backend)
-- Reza (Desain, Frontend)
-- Nico (Desain, Frontend)
-- Justin (Desain, Frontend)
+## Creators and Their Roles
+- Aerell (Design, Frontend, Backend)
+- Reza (Design, Frontend)
+- Nico (Design, Frontend)
+- Justin (Design, Frontend)
