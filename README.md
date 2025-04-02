@@ -1,4 +1,4 @@
-# Digital Bulletin Board
+# Digital Bulletin Board (JS)
 
 This is a technological innovation designed to modernize the traditional concept of a school bulletin board.
 
